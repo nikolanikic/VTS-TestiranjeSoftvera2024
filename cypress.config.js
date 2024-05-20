@@ -9,6 +9,6 @@ module.exports = defineConfig({
     },
     testIsolation: true,
     chromeWebSecurity: false,
-    specPattern: "**/*.feature"
+    specPattern: "**/*.{feature,cy.js}"
   },
 });
