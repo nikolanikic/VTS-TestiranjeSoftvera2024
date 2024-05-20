@@ -1,4 +1,12 @@
 class HomePage {
+  dashboardTitle() {
+    return cy.get('h1.uA6zAY')
+  }
+
+  checkIfTitleIsPresent() {
+    this.dashboardTitle().should('be.visible')
+    this.dashboardTitle().contains('Projects')
+  }
 
   createNewProjectButton() {
     return cy.get('#createButton');
