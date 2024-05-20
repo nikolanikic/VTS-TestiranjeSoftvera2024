@@ -1,3 +1,4 @@
+/// <reference types="cypress" />
 import LoginPage from '../../support/swag-labs/loginPage'
 import HomePage from '../../support/swag-labs/homePage'
 import Product from '../../support/swag-labs/product'
