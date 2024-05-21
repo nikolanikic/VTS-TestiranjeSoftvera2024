@@ -26,6 +26,18 @@ class HomePage {
   logoButton(){
     return cy.get('.mYdffk');
   }
+  projectOptionsDropdown() {
+    return cy.get('tbody tr:nth-child(2) button.G1dmaA')
+  }
+  deleteOptionInDropdown() {
+    return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
+  }
+  deleteModal() {
+    return cy.get('.ReactModal__Overlay')
+  }
+  confirmProjectDeleteButton() {
+    return cy.get('.X8bxUI')
+  }
 
   createNewProject() {
     this.createNewProjectButton().click();

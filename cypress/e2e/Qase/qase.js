@@ -33,6 +33,18 @@ Then("User should be able to see new project on home page", () => {
   homePage.verifyNewProjectIsCreated();
 })
 
+Then("User is able to delete created project", () => {
+  homePage.projectOptionsDropdown().click();
+  homePage.deleteOptionInDropdown().click();
+  homePage.deleteModal().should('be.visible')
+  homePage.deleteModal().contains('OurNewProject')
+  homePage.confirmProjectDeleteButton().click();
+})
+
 And("User returns to Home Page", () => {
   homePage.returnToHomePage();
+})
+
+And("User does not see the project in the table", () => {
+  cy.get('tbody tr').should('have.length', 1);
 })
