@@ -51,8 +51,8 @@ class HomePage {
     this.logoButton().click();
   }
 
-  verifyNewProjectIsCreated() {
-    cy.contains('OurNewProject');
+  verifyNewProjectIsCreated(projectName) {
+    cy.contains(projectName);
   }
 }
 
