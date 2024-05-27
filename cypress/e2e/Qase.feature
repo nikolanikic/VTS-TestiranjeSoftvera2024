@@ -8,8 +8,10 @@ Feature: Qase application tests
 
         Scenario: User is able to create a new project
                 Given User is logged in on Quase application
-                When User creates new project
+                When User creates new project with following details
+                        | projectName   | projectCode | projectDescription   |
+                        | OurNewProject | NPC001      | This is test project |
                 And User returns to Home Page
                 Then User should be able to see new project on home page
                 Then User is able to delete created project
-                And User does not see the project in the table 
+                And User does not see the project in the table

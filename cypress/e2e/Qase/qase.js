@@ -21,8 +21,13 @@ When("User enters his credentials and clicks login button", () => {
   loginPage.enterCredsAndLogin();
 })
 
-When("User creates new project", () => {
-  homePage.createNewProject();
+When("User creates new project with following details", (dataTable) => {
+  var data = dataTable.hashes();
+  var projectName = data[0].projectName;
+  var projectCode = data[0].projectCode;
+  var projectDescription = data[0].projectDescription;
+
+  homePage.createNewProject(projectName, projectCode, projectDescription);
 })
 
 Then("User shoud see Quase home page", () => {
