@@ -39,11 +39,11 @@ class HomePage {
     return cy.get('.X8bxUI')
   }
 
-  createNewProject() {
+  createNewProject(projectName, projectCode, projectDescription) {
     this.createNewProjectButton().click();
-    this.newProjectNameInput().type('OurNewProject');
-    this.newProjectCodeInput().clear().type('NPC001');
-    this.newProjectDescInput().type('This is test project');
+    this.newProjectNameInput().type(projectName);
+    this.newProjectCodeInput().clear().type(projectCode);
+    this.newProjectDescInput().type(projectDescription);
     this.createNewProjectFormButton().click();
   }
 
@@ -51,8 +51,8 @@ class HomePage {
     this.logoButton().click();
   }
 
-  verifyNewProjectIsCreated(){
-    cy.contains('OurNewProject');
+  verifyNewProjectIsCreated(projectName){
+    cy.contains(projectName);
   }
 }
 

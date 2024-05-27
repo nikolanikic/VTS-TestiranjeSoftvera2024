@@ -6,10 +6,16 @@ Feature: Qase application tests
         #         Then User shoud see Quase home page
 
 
-        Scenario: User is able to create a new project
+        Scenario Outline: User is able to create a new project
                 Given User is logged in on Quase application
-                When User creates new project
+                When User creates new project with following details
+                        | projectName   | projectCode   | projectDescription   |
+                        | <projectName> | <projectCode> | <projectDescription> |
                 And User returns to Home Page
                 Then User should be able to see new project on home page
                 Then User is able to delete created project
-                And User does not see the project in the table 
+                And User does not see the project in the table
+
+                Examples:
+                        | projectName        | projectCode | projectDescription |
+                        | TestProject nn_000 | 000         | VTS 2024 Vezbe     |

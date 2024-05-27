@@ -4,6 +4,7 @@ import HomePage from "../../support/qase/homePage";
 
 const loginPage = new LoginPage();
 const homePage = new HomePage();
+var projectNameDef = null;
 
 Given("User is on Quase Login page", () => {
   cy.visit("https://app.qase.io/login");
@@ -21,8 +22,15 @@ When("User enters his credentials and clicks login button", () => {
   loginPage.enterCredsAndLogin();
 })
 
-When("User creates new project", () => {
-  homePage.createNewProject();
+When("User creates new project with following details", (dataTable) => {
+  var data = dataTable.hashes();
+  var projectNameT = data[0].projectName;
+  var projectCodeT = data[0].projectCode;
+  var projectDescriptionT = data[0].projectDescription;
+
+  projectNameDef = projectNameT;
+
+  homePage.createNewProject(projectNameT, projectCodeT, projectDescriptionT);
 })
 
 Then("User shoud see Quase home page", () => {
@@ -30,14 +38,14 @@ Then("User shoud see Quase home page", () => {
 })
 
 Then("User should be able to see new project on home page", () => {
-  homePage.verifyNewProjectIsCreated();
+  homePage.verifyNewProjectIsCreated(projectNameDef);
 })
 
 Then("User is able to delete created project", () => {
   homePage.projectOptionsDropdown().click();
   homePage.deleteOptionInDropdown().click();
   homePage.deleteModal().should('be.visible')
-  homePage.deleteModal().contains('OurNewProject')
+  homePage.deleteModal().contains(projectNameDef)
   homePage.confirmProjectDeleteButton().click();
 })
 
