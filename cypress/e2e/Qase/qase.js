@@ -55,3 +55,19 @@ And("User returns to Home Page", () => {
 And("User does not see the project in the table", () => {
   cy.get('tbody tr').should('have.length', 1);
 })
+
+When("User wants to update project", () => {
+  homePage.projectOptionsDropdown().click();
+  homePage.settingsOptionInDropdown().click();
+})
+
+And("User change the logo", () => {
+  // cy.get('.YAFTyj').selectFile('cypress/fixtures/logo.png')
+  cy.get('input[type=file]').selectFile('cypress/fixtures/logo.png', { force: true })
+})
+
+Then("update shoul be successfull", () => {
+  cy.contains('Project avatar was successfully updated!')
+  cy.contains('Update settings').click()
+  homePage.returnToHomePage();
+})

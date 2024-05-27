@@ -32,6 +32,9 @@ class HomePage {
   deleteOptionInDropdown() {
     return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
   }
+  settingsOptionInDropdown() {
+    return cy.get('a.EehRY_')
+  }
   deleteModal() {
     return cy.get('.ReactModal__Overlay')
   }
