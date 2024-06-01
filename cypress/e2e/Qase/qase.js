@@ -36,3 +36,15 @@ Then("User should be able to see new project on home page", () => {
 And("User returns to Home Page", () => {
   homePage.returnToHomePage();
 })
+
+Then("User can delete their created project", () => {
+  homePage.projectOptionsDropdown().click();
+  homePage.deleteOptionInDropdown().click();
+  homePage.deleteModal().should('be.visible')
+  homePage.deleteModal().contains('OurNewProject')
+  homePage.confirmProjectDeleteButton().click();
+})
+
+And("User should not see the project in the table", () => {
+  cy.get('tbody tr').should('not.contain', 'OurNewProject');
+})

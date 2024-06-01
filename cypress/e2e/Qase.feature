@@ -11,3 +11,5 @@ Feature: Qase application tests
                 When User creates new project
                 And User returns to Home Page
                 Then User should be able to see new project on home page
+                Then User can delete their created project
+                And User should not see the project in the table
