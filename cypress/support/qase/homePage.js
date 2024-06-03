@@ -27,12 +27,33 @@ class HomePage {
     return cy.get('.mYdffk');
   }
 
+  projectOptionsDropdown() {
+    return cy.get('tbody tr:nth-child(2) button.G1dmaA')
+  }
+  deleteOptionInDropdown() {
+    return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
+  }
+  deleteModal() {
+    return cy.get('.ReactModal__Overlay')
+  }
+  confirmProjectDeleteButton() {
+    return cy.get('.X8bxUI')
+  }
+
   createNewProject() {
     this.createNewProjectButton().click();
     this.newProjectNameInput().type('OurNewProject');
     this.newProjectCodeInput().clear().type('NPC001');
     this.newProjectDescInput().type('This is test project');
     this.createNewProjectFormButton().click();
+  }
+
+  deleteNewProject() {
+    this.projectOptionsDropdown().click();
+    this.deleteOptionInDropdown().click();
+    this.deleteModal().should('be.visible')
+    this.deleteModal().contains('OurNewProject')
+    this.confirmProjectDeleteButton().click();
   }
 
   returnToHomePage(){
