@@ -36,3 +36,11 @@ Then("User should be able to see new project on home page", () => {
 And("User returns to Home Page", () => {
   homePage.returnToHomePage();
 })
+
+When("the User deletes the project", () => {
+  homePage.deleteCreatedProject();
+})
+
+Then("the project should no longer appear in the table", () => {
+  cy.get('tbody tr').should('not.contain', 'OurNewProject');
+})

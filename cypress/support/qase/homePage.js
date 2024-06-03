@@ -26,6 +26,18 @@ class HomePage {
   logoButton(){
     return cy.get('.mYdffk');
   }
+  projectDropdown() {
+    return cy.get('tbody tr:nth-child(2) button.G1dmaA')
+  }
+  deleteInDropdown() {
+    return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
+  }
+  deleteModal() {
+    return cy.get('.ReactModal__Overlay')
+  }
+  projectDeleteButton() {
+    return cy.get('.X8bxUI')
+  }
 
   createNewProject() {
     this.createNewProjectButton().click();
@@ -33,6 +45,14 @@ class HomePage {
     this.newProjectCodeInput().clear().type('NPC001');
     this.newProjectDescInput().type('This is test project');
     this.createNewProjectFormButton().click();
+  }
+
+  deleteCreatedProject() {
+    this.projectDropdown().click();
+    this.deleteInDropdown().click();
+    this.deleteModal().should('be.visible')
+    this.deleteModal().contains('OurNewProject')
+    this.projectDeleteButton().click();
   }
 
   returnToHomePage(){
