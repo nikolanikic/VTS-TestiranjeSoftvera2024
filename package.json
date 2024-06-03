@@ -4,8 +4,7 @@
     "description": "Testiranje Softvera",
     "main": "cypress.config.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "cy:run:qase": "cypress run"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "repository": {
         "type": "git",
@@ -21,7 +20,7 @@
         "cypress": "^13.9.0"
     },
     "devDependencies": {
-        "cypress-cucumber-preprocessor": "4.3.1"
+        "cypress-cucumber-preprocessor": "^4.3.1"
     },
     "cypress-cucumber-preprocessor": {
         "nonGlobalStepDefinitions": true,
