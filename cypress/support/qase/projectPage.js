@@ -1,4 +1,4 @@
-class HomePage {
+class ProjectPage {
   dashboardTitle() {
     return cy.get('h1.uA6zAY')
   }
@@ -20,10 +20,10 @@ class HomePage {
   newProjectDescInput() {
     return cy.get('#description-area');
   }
-  createNewProjectFormButton() {
+  createNewProjectFormButton(){
     return cy.get('.pfDFL9 > .ecSEF_');
   }
-  logoButton() {
+  logoButton(){
     return cy.get('.mYdffk');
   }
   projectOptionsDropdown() {
@@ -32,9 +32,6 @@ class HomePage {
   deleteOptionInDropdown() {
     return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
   }
-  settingsOptionInDropdown() {
-    return cy.get('a.EehRY_')
-  }
   deleteModal() {
     return cy.get('.ReactModal__Overlay')
   }
@@ -42,21 +39,21 @@ class HomePage {
     return cy.get('.X8bxUI')
   }
 
-  createNewProject(projectName, projectCode, projectDescription) {
+  createNewProject() {
     this.createNewProjectButton().click();
-    this.newProjectNameInput().type(projectName);
-    this.newProjectCodeInput().clear().type(projectCode);
-    this.newProjectDescInput().type(projectDescription);
+    this.newProjectNameInput().type('OurNewProject');
+    this.newProjectCodeInput().clear().type('NPC001');
+    this.newProjectDescInput().type('This is test project');
     this.createNewProjectFormButton().click();
   }
 
-  returnToHomePage() {
+  returnToHomePage(){
     this.logoButton().click();
   }
 
-  verifyNewProjectIsCreated(projectName) {
-    cy.contains(projectName);
+  verifyNewProjectIsCreated(){
+    cy.contains('OurNewProject');
   }
 }
 
-export default HomePage;
+export default ProjectPage;
