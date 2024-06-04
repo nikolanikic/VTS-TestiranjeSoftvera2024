@@ -41,9 +41,9 @@ class ProjectPage {
 
   createNewProject() {
     this.createNewProjectButton().click();
-    this.newProjectNameInput().type('OurNewProject');
-    this.newProjectCodeInput().clear().type('NPC001');
-    this.newProjectDescInput().type('This is test project');
+    this.newProjectNameInput().type('Project_005');
+    this.newProjectCodeInput().clear().type('005');
+    this.newProjectDescInput().type("Milena Trifunovic");
     this.createNewProjectFormButton().click();
   }
 
@@ -52,7 +52,7 @@ class ProjectPage {
   }
 
   verifyNewProjectIsCreated(){
-    cy.contains('OurNewProject');
+    cy.contains('Project_005');
   }
 }
 
