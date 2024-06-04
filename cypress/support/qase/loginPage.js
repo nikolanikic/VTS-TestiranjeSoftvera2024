@@ -1,9 +1,9 @@
-class LoginPage{
-  loginPageTitle(){
+class LoginPage {
+  loginPageTitle() {
     return cy.get('.NsFoEI');
   }
 
-  verifyUserIsOnLoginPage(){
+  verifyUserIsOnLoginPage() {
     this.loginPageTitle().should('be.visible');
     this.loginPageTitle().contains('Log in to your account');
   }
@@ -20,20 +20,12 @@ class LoginPage{
     return cy.get('button[type="submit"] > span.CAunhU');
   }
 
-  dashboardTitle() {
-    return cy.get('h1.uA6zAY')
-  }
-
   enterCredsAndLogin() {
-    this.emailField().type('e21veljkostevic@gmail.com')
-    this.passwordField().type('CypTest123$$')
+    this.emailField().type(Cypress.env('qase_email'))
+    this.passwordField().type(Cypress.env('qase_password'))
     this.loginButton().click()
   }
 
-  checkIfTitleIsPresent() {
-    this.dashboardTitle().should('be.visible')
-    this.dashboardTitle().contains('Projects')
-  }
 }
 
 export default LoginPage;

@@ -14,7 +14,7 @@ Given("User is logged in on Quase application", () => {
   cy.visit("https://app.qase.io/login");
   loginPage.verifyUserIsOnLoginPage();
   loginPage.enterCredsAndLogin();
-  loginPage.checkIfTitleIsPresent();
+  homePage.checkIfTitleIsPresent();
 })
 
 When("User enters his credentials and clicks login button", () => {
@@ -26,7 +26,7 @@ When("User creates new project", () => {
 })
 
 Then("User shoud see Quase home page", () => {
-  loginPage.checkIfTitleIsPresent();
+  homePage.checkIfTitleIsPresent();
 })
 
 Then("User should be able to see new project on home page", () => {
@@ -35,4 +35,12 @@ Then("User should be able to see new project on home page", () => {
 
 And("User returns to Home Page", () => {
   homePage.returnToHomePage();
+})
+
+Then("User deletes the new project", () => {
+  homePage.deleteProject();
+})
+
+And("User should not be able to see the new project", () => {
+  homePage.checkProjectIsDeleted();
 })

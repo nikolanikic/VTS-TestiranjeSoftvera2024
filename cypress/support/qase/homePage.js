@@ -34,6 +34,37 @@ class HomePage {
   verifyNewProjectIsCreated(){
     cy.contains('OurNewProject');
   }
+
+  dashboardTitle() {
+    return cy.get('h1.uA6zAY')
+  }
+
+  checkIfTitleIsPresent() {
+    this.dashboardTitle().should('be.visible')
+    this.dashboardTitle().contains('Projects')
+  }
+
+  projectDropdown() {
+    return cy.get('tbody tr:nth-child(2) button.G1dmaA')
+  }
+  projectDropdownRemoveOption() {
+    return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
+  }
+  modalDeleteProjectButton() {
+    return cy.get('.X8bxUI')
+  }
+
+  deleteProject(){
+    this.projectDropdown().click();
+    this.projectDropdownRemoveOption().click();
+    this.modalDeleteProjectButton().click();
+  }
+
+  checkProjectIsDeleted(){
+    cy.contains('OurNewProject').should('not.exist');
+  }
+
+
 }
 
 export default HomePage;
