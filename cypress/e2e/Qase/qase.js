@@ -9,7 +9,7 @@ const projectPage = new ProjectPage();
 const username = Cypress.env("qase_email");
 const password = Cypress.env("qase_password");
 
-Given("User is on Quase Login page", () => {
+Given("User is on Qase Login page", () => {
     cy.visit("https://app.qase.io/login");
     loginPage.verifyUserIsOnLoginPage();
 
@@ -18,7 +18,7 @@ Given("User is on Quase Login page", () => {
       loginPage.login(username, password);
     })
 
-    Then("User shoud see Quase home page", ()=> {
+    Then("User should see Qase home page", ()=> {
         cy.get('.mYdffk').should("exist");
         cy.get('.sFz8ki > :nth-child(2)').should("exist");
         cy.get('[href="/workspace"]').should("exist");
@@ -29,7 +29,7 @@ Given("User is on Quase Login page", () => {
 
 })
 
-Given("User is logged in on Quase application", () => {
+Given("User is logged in on Qase application", () => {
     cy.visit("https://app.qase.io/login");
     loginPage.verifyUserIsOnLoginPage();
     loginPage.login(username, password);
@@ -40,7 +40,7 @@ Given("User is logged in on Quase application", () => {
       projectPage.createNewProject();
       })
       
-      Then("User shoud see Quase home page", () => {
+      Then("User should see Qase home page", () => {
         projectPage.checkIfTitleIsPresent();
       })
       
