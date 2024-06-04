@@ -21,8 +21,8 @@ class LoginPage{
   }
 
   enterCredsAndLogin() {
-    this.emailField().type(Cypress.env('qase_email'))
-    this.passwordField().type(Cypress.env('qase_password'))
+    this.emailField().type(Cypress.env('predragdamjanovic16@gmail.com')) 
+    this.passwordField().type(Cypress.env('Quase_sifra123'))
     this.loginButton().click()
   }
 }
