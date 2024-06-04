@@ -5,7 +5,7 @@ import { use } from "chai";
 
 const loginPageQase = new LoginPageQase();
 const homePage = new HomePageQase();
-const username = "andreapet2103@@gmail.com";
+const username = "andreapet2103@gmail.com";
 const password = "Jakosmaranje1-"
 
 Given("User is on Quase Login page", () => {
