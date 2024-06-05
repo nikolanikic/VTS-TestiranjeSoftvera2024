@@ -42,6 +42,27 @@ class HomePage {
   verifyNewProjectIsCreated(){
     cy.contains('OurNewProject');
   }
+
+  projectOptionsDropdown() {
+    return cy.get('tbody tr:nth-child(2) button.G1dmaA')
+  }
+  deleteOptionInDropdown() {
+    return cy.get('button.EehRY_.Wy99v3.fwhtHZ')
+  }
+  deleteModal() {
+    return cy.get('.ReactModal__Overlay')
+  }
+  confirmProjectDeleteButton() {
+    return cy.get('.X8bxUI')
+  }
+
+  deleteProject() {
+    this.projectOptionsDropdown().click();
+    this.deleteOptionInDropdown().click();
+    this.deleteModal().should('be.visible')
+    this.deleteModal().contains('OurNewProject')
+    this.confirmProjectDeleteButton().click();
+  }
 }
 
 export default HomePage;
