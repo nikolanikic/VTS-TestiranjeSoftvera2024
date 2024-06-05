@@ -9,7 +9,7 @@ const homePage = new HomePage();
 const inventory = new Inventory();
 const backpack = new Backpack();
 const shoppingCart = new Cart();
-const proizvod = "Sauce Labs Backpac";
+const proizvod = "Sauce Labs Backpack";
 
 describe("Swag labs - cart verification", () => {
     beforeEach(() => {
