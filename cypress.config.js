@@ -1,14 +1,10 @@
 const { defineConfig } = require("cypress");
-const cucumber = require('cypress-cucumber-preprocessor').default
 
 module.exports = defineConfig({
+  projectId: 'p1t2gc',
   e2e: {
     setupNodeEvents(on, config) {
       // implement node event listeners here
-      on('file:preprocessor', cucumber())
     },
-    testIsolation: true,
-    chromeWebSecurity: false,
-    specPattern: "**/*.feature"
   },
 });

@@ -36,4 +36,3 @@ Feature: Qase application tests
 
                 Then User is able to delete created project
                 And User does not see the project in the table
-
