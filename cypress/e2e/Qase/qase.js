@@ -1,10 +1,9 @@
 import { And, Given, Then, When} from "cypress-cucumber-preprocessor/steps";
-import LoginPageQase from "../../support/qase/loginPageQase";
-import HomePageQase from "../../support/qase/HomePageQase";
-import { use } from "chai";
+import LoginPage from "../../support/qase/loginPage";
+import HomePage from "../../support/qase/homePage";
 
-const loginPageQase = new LoginPageQase();
-const homePage = new HomePageQase();
+const loginPage = new LoginPage();
+const homePage = new HomePage();
 const username = "veljkomilenovic54@gmail.com";
 const password = "Kragujevac2024."
 
