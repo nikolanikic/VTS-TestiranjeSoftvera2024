@@ -41,9 +41,9 @@ class HomePage {
 
   createNewProject() {
     this.createNewProjectButton().click();
-    this.newProjectNameInput().type('Testiranje');
+    this.newProjectNameInput().type('TestiranjeQase');
     this.newProjectCodeInput().clear().type('Domaci3');
-    this.newProjectDescInput().type("Uradjen domaci 3");
+    this.newProjectDescInput().type("Uradjen domaci 3, broj indexa 059");
     this.createNewProjectFormButton().click();
   }
 
@@ -52,7 +52,7 @@ class HomePage {
   }
 
   verifyNewProjectIsCreated(){
-    cy.contains('Testiranje');
+    cy.contains('TestiranjeQase');
   }
 }
 

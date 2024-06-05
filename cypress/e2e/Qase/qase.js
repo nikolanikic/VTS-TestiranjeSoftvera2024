@@ -52,7 +52,7 @@ Given("User is logged in on Quase application", () => {
       homePage.projectOptionsDropdown().click();
       homePage.deleteOptionInDropdown().click();
       homePage.deleteModal().should('be.visible')
-      homePage.deleteModal().contains('Testiranje')
+      homePage.deleteModal().contains('TestiranjeQase')
       homePage.confirmProjectDeleteButton().click();
     })
     
