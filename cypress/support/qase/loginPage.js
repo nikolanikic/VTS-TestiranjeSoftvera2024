@@ -1,9 +1,9 @@
-class LoginPage{
-  loginPageTitle(){
+class LoginPage {
+  loginPageTitle() {
     return cy.get('.NsFoEI');
   }
 
-  verifyUserIsOnLoginPage(){
+  verifyUserIsOnLoginPage() {
     this.loginPageTitle().should('be.visible');
     this.loginPageTitle().contains('Log in to your account');
   }
@@ -25,6 +25,7 @@ class LoginPage{
     this.passwordField().type(Cypress.env('qase_password'))
     this.loginButton().click()
   }
+
 }
 
 export default LoginPage;
