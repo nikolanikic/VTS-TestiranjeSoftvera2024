@@ -11,3 +11,5 @@ Feature: Qase application tests
                 When User creates new project
                 And User returns to Home Page
                 Then User should be able to see new project on home page
+                When the User removes the project
+                Then the project should no longer appear in the list
